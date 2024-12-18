@@ -1,3 +1,5 @@
+![Task Image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-asPC5Skb6EoE1i324HhdGnV1/user-4VyHdJuNDsg3rdcmO7ghXoi2/img-ewGsSGEv4fOHve0MuZXThfmk.png?st=2024-12-18T10%3A26%3A52Z&se=2024-12-18T12%3A26%3A52Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-12-18T00%3A41%3A47Z&ske=2024-12-19T00%3A41%3A47Z&sks=b&skv=2024-08-04&sig=V5aWLhYNZM81mCykptvtbhElcwbl%2BulSaIvsi/8ao6o%3D)
+
 ### 🎮 Programming Task: Build a Simple Game Application with File-based Object Creation, Class Design, and Creative Programming  
 
 ---
