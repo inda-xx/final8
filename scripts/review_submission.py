@@ -56,7 +56,7 @@ def main():
     # Call OpenAI API
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-2024-08-06",
+            model="chatgpt-4o-latest",
             messages=[
                 {
                     "role": "system",

@@ -22,7 +22,7 @@ def main(pr_number, test_results_file):
     # Call OpenAI API using the new format
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-2024-08-06",
+            model="chatgpt-4o-latest",
             messages=[
                 {
                     "role": "system",

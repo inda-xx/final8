@@ -156,7 +156,7 @@ def generate_with_retries(client, messages, max_retries=3):
     for attempt in range(max_retries):
         try:
             response = client.chat.completions.create(
-                model="gpt-4o-latest",
+                model="chatgpt-4o-latest",
                 messages=messages
             )
             return response.choices[0].message.content.strip()
