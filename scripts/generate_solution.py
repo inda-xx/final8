@@ -380,7 +380,7 @@ def generate_with_retries(client, prompt, max_retries=3):
     for attempt in range(max_retries):
         try:
             response = client.chat.completions.create(
-                model="o1",
+                model="chatgpt-4o-latest",
                 messages=[
                     {"role": "system", "content": "You are an expert Java programmer and educator."},
                     {"role": "user", "content": prompt}

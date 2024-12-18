@@ -36,7 +36,7 @@ def main(api_key, pull_request_number):
     # Call OpenAI API to evaluate the student's code
     try:
         response = openai.Completion.create(
-            model="gpt-4o-2024-08-06",
+            model="chatgpt-4o-latest",
             prompt=prompt,
             max_tokens=500
         )
