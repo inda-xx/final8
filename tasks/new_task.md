@@ -1,3 +1,5 @@
+![Task Image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-asPC5Skb6EoE1i324HhdGnV1/user-4VyHdJuNDsg3rdcmO7ghXoi2/img-B3Sn9ZvAkzrpccwyPfTCzpKp.png?st=2024-12-18T12%3A29%3A41Z&se=2024-12-18T14%3A29%3A41Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-12-18T00%3A53%3A42Z&ske=2024-12-19T00%3A53%3A42Z&sks=b&skv=2024-08-04&sig=5hfjhaTykJTFv2lOhVs9kDF%2Bpj7OyrSkH7Aht6rc0PI%3D)
+
 **Task Description: Build a Simple 2D Game Application in Java**
 
 In this project, you will design and develop a simple 2D game application in Java. The game will include player movement, a scoring system, and interactions with enemies. The primary focus of this task is to integrate three key learning goals: **using data from files to instantiate objects**, **designing classes**, and **programming creatively**. By the end of this project, you will have created a functional game while mastering object-oriented programming concepts, file handling, and creative problem-solving.
