@@ -20,7 +20,25 @@ def main(api_key):
     theme = os.getenv("TASK_THEME", "Create a basic Java application with the following requirements.")
     language = os.getenv("TASK_LANGUAGE", "English")
 
-    # Extract learning goals
+    # Shared settings for all API calls
+    base_settings = {
+        "model": "chatgpt-4o-latest",
+        "temperature": 0.7,
+        "max_tokens": 1500
+    }
+
+    # Function to make API calls
+    def generate_task_step(system_message, user_message):
+        messages = [
+            {"role": "system", "content": system_message},
+            {"role": "user", "content": user_message}
+        ]
+        response = client.chat.completions.create(messages=messages, **base_settings)
+        return response.choices[0].message.content
+
+    # Step 1: Generate Task Theme Description
+
+    language = "English"
     learning_goals = """
     * Using Data from Files to Instantiate Objects
     * Designing Classes
@@ -53,69 +71,55 @@ def main(api_key):
                 "Subpoint 3: Integrating user feedback and testing to improve program effectiveness and usability."
             ]
         }
-    
     """
 
-    # Read the original task from file
-    original_task_path = os.path.join("tasks", "original_task.md")
-    if not os.path.exists(original_task_path):
-        print(f"Error: Original task file not found at {original_task_path}")
-        sys.exit(1)
-    with open(original_task_path, "r") as f:
-        original_task_content = f.read()
+    system_message = (
+        "You are an experienced programming instructor creating detailed tasks for university-level students. "
+        "The tasks should be challenging, pedagogically valuable, and include detailed descriptions."
+    )
+    user_message = (
+        f"Create a high-level programming task description in {language} with the following theme:\n\n"
+        f"**Theme**: {theme}\n\n"
+        f"The task must include and integrate the following learning goals:\n{learning_goals}\n\n"
+        "The task description should be engaging, detailed, and structured to provide a foundation for exercises."
+        "The task description should include proper scaffolding with small code snippets to help students stay on track and not be confused"
+    )
 
-    # Split the original task into chunks per exercise
-    exercise_chunks = split_task_into_exercises(original_task_content)
+    task_description = generate_task_step(system_message, user_message)
+    print(task_description)
 
-    # Build the messages for the OpenAI API
-    messages = [
-        {
-            "role": "system",
-            "content": (
-                "You are an experienced programming instructor creating detailed tasks for university-level students. "
-                "The tasks should be challenging, pedagogically valuable, and should include detailed descriptions with code snippets where necessary."
-            )
-        },
-        {
-            "role": "user",
-            "content": (
-                f"Create a new programming task in {language} with the following theme:\n\n"
-                f"**Theme**: {theme}\n\n"
-                f"The task must include and integrate the following learning goals:\n{learning_goals}\n\n"
-                "The task should include at least six exercises that gradually increase in difficulty. Each exercise should be well-detailed and include code snippets where necessary.\n\n"
-                "- **Exercises 1 & 2**: Focus on theoretical aspects of the learning goals. Challenge students' understanding through conceptual questions and explanations without requiring coding.\n\n"
-                "- **Exercises 3 & 4**: Focus on combining and integrating the concepts into coding. Require students to write code that applies the concepts in practical scenarios.\n\n"
-                "- **Exercises 5 & 6**: Are challenging coding tasks that require significant learning and coding effort to complete. These should be step-by-step tasks that build upon previous exercises.\n\n"
-                "Use the following exercises from the original task as inspiration for each exercise in the new task. Adapt them to fit the new theme and ensure they cover the learning goals.\n\n"
-                "Althought the task should be modular it is desired to have a general overarching theme in the more programming oriented tasks, not so much in the more theory oriented ones."
-            )
-        }
-    ]
+    # Step 2: Generate Exercises 1 & 2
+    user_message = (
+        f"The following is the task description so far:\n\n{task_description}\n\n"
+        "Based on this, create the first two exercises:\n"
+        "- **Exercises 1 & 2**: Focus on theoretical aspects of the learning goals. Challenge students' understanding through conceptual questions and explanations without requiring coding."
+    )
 
-    # Add each exercise chunk as a separate message
-    for i, chunk in enumerate(exercise_chunks):
-        messages.append({
-            "role": "assistant",
-            "content": (
-                f"Here is exercise {i+1} from the original task for inspiration:\n\n{chunk}\n\n"
-                "Please adapt this exercise to fit the new theme and include it in the new task."
-            )
-        })
+    exercises_1_2 = generate_task_step(system_message, user_message)
+    print(exercises_1_2)
 
-    messages.append({
-        "role": "user",
-        "content": (
-            "Please provide the complete new task description, including all exercises, instructions, and any necessary details. "
-            "Include titles, subtitles, and emojis for aesthetics to make the description detailed, well-structured, and engaging. "
-            "Ensure the task is challenging and pedagogically valuable, following the structure specified."
-        )
-    })
+    # Step 3: Generate Exercises 3 & 4
+    user_message = (
+        f"The following is the task description and Exercises 1 & 2:\n\n{task_description}\n\n{exercises_1_2}\n\n"
+        "Based on this, create Exercises 3 & 4:\n"
+        "- **Exercises 3 & 4**: Focus on combining and integrating the concepts into coding. Require students to write code that applies the concepts in practical scenarios."
+    )
 
-    # Call OpenAI API to generate the task description
-    response_content = generate_with_retries(client, messages, max_retries=3)
-    if response_content is None:
-        print("Error: Failed to generate task description after multiple retries.")
-        sys.exit(1)
+    exercises_3_4 = generate_task_step(system_message, user_message)
+    print(exercises_3_4)
+
+    # Step 4: Generate Exercises 5 & 6
+    user_message = (
+        f"The following is the task description and Exercises 1-4:\n\n{task_description}\n\n{exercises_1_2}\n\n{exercises_3_4}\n\n"
+        "Based on this, create Exercises 5 & 6:\n"
+        "- **Exercises 5 & 6**: These are challenging coding tasks that require significant learning and coding effort to complete. Build these step-by-step tasks upon previous exercises."
+    )
+
+    exercises_5_6 = generate_task_step(system_message, user_message)
+    print(exercises_5_6)
+
+    # Combine all generated content
+    complete_task = f"{task_description}\n\n{exercises_1_2}\n\n{exercises_3_4}\n\n{exercises_5_6}"
 
     # Create a new branch with a unique name
     stockholm_tz = timezone('Europe/Stockholm')
@@ -125,7 +129,7 @@ def main(api_key):
     # Write the response content to a markdown file
     task_file_path = os.path.join("tasks", "new_task.md")
     with open(task_file_path, "w") as file:
-        file.write(response_content)
+        file.write(complete_task)
 
     # Commit and push changes
     commit_and_push_changes(branch_name, task_file_path)
@@ -133,39 +137,7 @@ def main(api_key):
     # Output the branch name for the next job
     print(f"::set-output name=branch_name::{branch_name}")
 
-def split_task_into_exercises(task_content):
-    # This function splits the task content into separate exercises
-    # For simplicity, let's assume that each exercise starts with '#### Exercise'
-    exercises = []
-    lines = task_content.split('\n')
-    current_exercise = []
-    in_exercise = False
-    for line in lines:
-        if line.strip().startswith('#### Exercise'):
-            if current_exercise:
-                exercises.append('\n'.join(current_exercise))
-                current_exercise = []
-            in_exercise = True
-        if in_exercise:
-            current_exercise.append(line)
-    if current_exercise:
-        exercises.append('\n'.join(current_exercise))
-    return exercises
-
-def generate_with_retries(client, messages, max_retries=3):
-    for attempt in range(max_retries):
-        try:
-            response = client.chat.completions.create(
-                model="chatgpt-4o-latest",
-                messages=messages
-            )
-            return response.choices[0].message.content.strip()
-        except Exception as e:
-            print(f"Error generating task description: {e}")
-            if attempt < max_retries - 1:
-                print("Retrying...")
-    return None
-
+# Functionality for git operations remains unchanged
 def create_branch(branch_name):
     try:
         subprocess.run(["git", "checkout", "-b", branch_name], check=True)
