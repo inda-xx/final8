@@ -1,3 +1,5 @@
+![Task Image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-asPC5Skb6EoE1i324HhdGnV1/user-4VyHdJuNDsg3rdcmO7ghXoi2/img-VguNwaWod1kbfLYmu6V2sXwW.png?st=2024-12-18T10%3A02%3A03Z&se=2024-12-18T12%3A02%3A03Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-12-18T00%3A42%3A06Z&ske=2024-12-19T00%3A42%3A06Z&sks=b&skv=2024-08-04&sig=llQbc4euT6foLImhcAYQNilp72y4q1CXILqHcy0RZGk%3D)
+
 ### 🎮 Task: Build a Simple Game with Player Movement, Scoring, and Enemy Interactions
 
 **Overview:**  
