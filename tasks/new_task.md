@@ -1,3 +1,5 @@
+![Task Image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-asPC5Skb6EoE1i324HhdGnV1/user-4VyHdJuNDsg3rdcmO7ghXoi2/img-Zh1bOb2miObWwcN0sJItfOw8.png?st=2024-12-18T12%3A36%3A52Z&se=2024-12-18T14%3A36%3A52Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-12-18T00%3A38%3A14Z&ske=2024-12-19T00%3A38%3A14Z&sks=b&skv=2024-08-04&sig=9qoCl4ef0ycra%2BlXjhqBZDQnJT9QCqGmpS8G4OWmCS4%3D)
+
 ### Task Description: Create a Simple Game Application
 
 In this task, you will design and implement a **simple 2D console-based game application** that includes **player movement, a scoring system, and enemy interactions**. The game will use **data from external files** to dynamically create game elements such as enemies, and it will be built using **well-designed classes**. You are encouraged to apply **creative solutions** to make your game engaging and interactive.
