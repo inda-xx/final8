@@ -76,6 +76,9 @@ def main(api_key):
     system_message = (
         "You are an experienced programming instructor creating detailed tasks for university-level students. "
         "The tasks should be challenging, pedagogically valuable, and include detailed descriptions."
+        "The students are first year computer science students with basic programming capabilities."
+        f"The goal of the course is to introduce and help them learn key programming concepts based on the weekly learning goals:\n{learning_goals}\n."
+        "The tasks should be solvable within one week time frame."
     )
     user_message = (
         f"Create a high-level programming task description in {language} with the following theme:\n\n"
