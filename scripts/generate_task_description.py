@@ -95,7 +95,8 @@ def main(api_key):
     user_message = (
         f"The following is the task description so far:\n\n{task_description}\n\n"
         "Based on this, create the first two exercises:\n"
-        "- **Exercises 1 & 2**: Focus on theoretical aspects of the learning goals. Challenge students' understanding through conceptual questions and explanations without requiring coding."
+        "- **Exercises 1 & 2**: Focus on theoretical aspects of the learning goals. Challenge students' understanding through conceptual questions about CS concepts involved in the task without requiring significant coding."
+        "These exercises should introduce the overall task and prepare students for subsequent coding activities, as noted they are only the 1&2 exercises out of 6"
     )
 
     exercises_1_2 = generate_task_step(system_message, user_message)
@@ -106,6 +107,8 @@ def main(api_key):
         f"The following is the task description and Exercises 1 & 2:\n\n{task_description}\n\n{exercises_1_2}\n\n"
         "Based on this, create Exercises 3 & 4:\n"
         "- **Exercises 3 & 4**: Focus on combining and integrating the concepts into coding. Require students to write code that applies the concepts in practical scenarios."
+        "These exercises should transition seamlessly from the theoretical groundwork laid in Exercises 1 & 2."
+        "The first two exercises focus on the theoretical aspects of the task and the subsequent ones (5&6) will be more pure coding, so these exercises (3&4) need to act as a balancing act and transition between the two. "
     )
 
     exercises_3_4 = generate_task_step(system_message, user_message)
@@ -116,6 +119,7 @@ def main(api_key):
         f"The following is the task description and Exercises 1-4:\n\n{task_description}\n\n{exercises_1_2}\n\n{exercises_3_4}\n\n"
         "Based on this, create Exercises 5 & 6:\n"
         "- **Exercises 5 & 6**: These are challenging coding tasks that require significant learning and coding effort to complete. Build these step-by-step tasks upon previous exercises."
+        "Ensure that these exercises finalize the learning journey and consolidate all previous steps into a cohesive outcome."
     )
 
     exercises_5_6 = generate_task_step(system_message, user_message)
