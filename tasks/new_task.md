@@ -1,3 +1,5 @@
+![Task Image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-asPC5Skb6EoE1i324HhdGnV1/user-4VyHdJuNDsg3rdcmO7ghXoi2/img-iAdgoE1zMT8QjM80Gmc2uKTt.png?st=2024-12-24T22%3A08%3A39Z&se=2024-12-25T00%3A08%3A39Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-12-24T08%3A34%3A09Z&ske=2024-12-25T08%3A34%3A09Z&sks=b&skv=2024-08-04&sig=jB2yPrk3CVrg8gw/bU5C/785bbfwxa31%2BH3BJ594Z%2Bk%3D)
+
 # Task: Build a Simple Game Application in Java
 
 In this task, you will design and implement a **simple game application**. The goal of the game is to control a player character who can move around the screen, avoid enemies, and collect points to increase the score. The game will also include dynamic enemy interactions based on data read from a file. This task will help you practice **using data from files to instantiate objects**, **designing classes**, and **programming creatively**.
