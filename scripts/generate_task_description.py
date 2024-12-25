@@ -109,6 +109,7 @@ def main(api_key):
         "- **Exercises 3 & 4**: Focus on combining and integrating the concepts into coding. Require students to write code that applies the concepts in practical scenarios."
         "These exercises should transition seamlessly from the theoretical groundwork laid in Exercises 1 & 2."
         "The first two exercises focus on the theoretical aspects of the task and the subsequent ones (5&6) will be more pure coding, so these exercises (3&4) need to act as a balancing act and transition between the two. "
+        "Take into consideration that the exercises are to be completed in a one week time span by first year computer science students."
     )
 
     exercises_3_4 = generate_task_step(system_message, user_message)
@@ -120,6 +121,9 @@ def main(api_key):
         "Based on this, create Exercises 5 & 6:\n"
         "- **Exercises 5 & 6**: These are challenging coding tasks that require significant learning and coding effort to complete. Build these step-by-step tasks upon previous exercises."
         "Ensure that these exercises finalize the learning journey and consolidate all previous steps into a cohesive outcome."
+        "Take into consideration that the exercises are to be completed in a one week time span by first year computer science students."
+        "The exercises should provide a good scaffolding for the students so that they can stay on course and not be confused by the objectives of the exercise."
+        "The final exercise, exercise 6, should be slightly more challenging and only very slightly expand the scope of CS1 knowledge. "
     )
 
     exercises_5_6 = generate_task_step(system_message, user_message)
