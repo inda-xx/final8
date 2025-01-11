@@ -1,3 +1,5 @@
+![Task Image](https://oaidalleapiprodscus.blob.core.windows.net/private/org-asPC5Skb6EoE1i324HhdGnV1/user-4VyHdJuNDsg3rdcmO7ghXoi2/img-C6DyzLvybIZivHZzEPnUMAc6.png?st=2025-01-11T13%3A43%3A38Z&se=2025-01-11T15%3A43%3A38Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-01-11T00%3A21%3A54Z&ske=2025-01-12T00%3A21%3A54Z&sks=b&skv=2024-08-04&sig=w2sGD8W/90e4LxwZKp1IM1VVL1kN5OTeNPpo4Mnc5jI%3D)
+
 **Task Description: Create a Simple Game Application with Player Movement, Scoring System, and Enemy Interactions**
 
 ### Overview:
