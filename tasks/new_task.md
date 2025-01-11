@@ -1,3 +1,5 @@
+![Task Image](images/task_image_20250111_145736.png)
+
 ### Task: Create a Simple Game Application
 
 #### **Overview**
