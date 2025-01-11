@@ -285,6 +285,8 @@ def main(api_key, branch_name):
 
     # Combine the solution into a single prompt for test generation
     prompt = (
+        "You are part of a task generation system to create weekly tasks for CS1 studnets"
+        "Your specific duty is to create tests based on the solution files so the studnets can run them to ensure they have fullfilled the tasks goals."
         f"Given the following Java solution, generate a set of high-quality unit tests. "
         f"Ensure the tests are thorough, robust, and cover all edge cases, including invalid inputs, boundary conditions, and performance considerations. "
         f"Ensure the tests use the correct imports and that each class is placed in the correct file as per Java naming conventions.\n\n"

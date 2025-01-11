@@ -54,7 +54,10 @@ def generate_template_with_openai(client, solution_content):
     while retaining class and method signatures.
     """
     prompt = (
-            "You are a helpful assistant that generates code templates for educational purposes. "
+            "You are part of a task generation system to create weekly tasks for CS1 students."
+            "Your goal is to create templates that provide a template for the studnets to solve their weekly tasks."
+            "The template will be based on the solution files to the task, so you must strip away most of the code but still provide a good enough scaffolding for the studnets to slove their task"
+            "The scaffolding should purely assist them in understanding the general expected structure, without in any way revealing the answer."
             "Given the following Java solution code, remove all implementation details and leave only the class and method signatures. "
             "Ensure that the structure is correct, add comments very sparsely and only in instances that it is absoltly necessary.\n\n"
             "### Solution Code:\n"

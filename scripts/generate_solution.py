@@ -284,6 +284,8 @@ public class Room {
     )
 
     prompt = (
+        "You are a task solution generator as part of a wider task generation system to create weekly programming tasks for CS1 university students."
+        "You will recieve the data from the task desctiption generation step in the system and should create a solution to the tasks that strictly adheres to the goals of the task description."
         f"Based on the following task description, generate complete and functional Java solutions for each coding exercise. "
         f"The description is directed towards the students so read it with that in mind and treat the task from the course leader perspective"
         f"The solutions should be well-structured, use meaningful variable names, include necessary comments for clarity, "
