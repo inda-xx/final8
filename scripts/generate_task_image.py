@@ -1,11 +1,8 @@
 from openai import OpenAI
 import os
-import requests
-from datetime import datetime
 
 # Path for the task file
 task_file_path = os.path.join("tasks", "new_task.md")
-images_dir = os.path.join("tasks", "images")
 
 def generate_image_url_from_description(description, client):
     # Build a more descriptive prompt for DALL-E based on the task details
@@ -30,28 +27,12 @@ def generate_image_url_from_description(description, client):
     image_url = response.data[0].url
     return image_url
 
-def download_image(image_url):
-    # Create images directory if it doesn't exist
-    os.makedirs(images_dir, exist_ok=True)
-    
-    # Generate unique filename using timestamp
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    image_filename = f"task_image_{timestamp}.png"
-    image_path = os.path.join(images_dir, image_filename)
-    
-    # Download the image
-    response = requests.get(image_url)
-    if response.status_code == 200:
-        with open(image_path, "wb") as f:
-            f.write(response.content)
-        return os.path.join("images", image_filename)  # Return relative path
-    return None
 
-def insert_image_into_markdown(image_path, markdown_path):
+def insert_image_url_into_markdown(image_url, markdown_path):
     # Read the existing task description and add the image URL at the top
     with open(markdown_path, "r") as f:
         markdown_content = f.read()
-    image_markdown = f"![Task Image]({image_path})\n\n"
+    image_markdown = f"![Task Image]({image_url})\n\n"
     new_markdown_content = image_markdown + markdown_content
 
     # Write the updated content back to the markdown file
@@ -67,13 +48,8 @@ def main(api_key):
 
     # Generate the image URL and add it to the markdown file
     image_url = generate_image_url_from_description(task_description, client)
-    image_path = download_image(image_url)
-    
-    if image_path:
-        insert_image_into_markdown(image_path, task_file_path)
-        print("Image downloaded and added to the task file.")
-    else:
-        print("Error: Failed to download image.")
+    insert_image_url_into_markdown(image_url, task_file_path)
+    print("Image URL generated and added to the task file.")
 
 if __name__ == "__main__":
     # Ensure the OpenAI API key is provided as an environment variable
